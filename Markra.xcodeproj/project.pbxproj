@@ -1,0 +1,1095 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		372F22552531027E0011503C /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
+		37926817253102C500C1DB38 /* Markdown2Jira.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0271252D787A009FC552 /* Markdown2Jira.swift */; };
+		37926823253102E400C1DB38 /* Scmark in Frameworks */ = {isa = PBXBuildFile; productRef = 37926822253102E400C1DB38 /* Scmark */; };
+		37CD023E252D7528009FC552 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD023D252D7528009FC552 /* Tests_iOS.swift */; };
+		37CD0249252D7528009FC552 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0248252D7528009FC552 /* Tests_macOS.swift */; };
+		37CD024B252D7528009FC552 /* MarkraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0222252D7527009FC552 /* MarkraApp.swift */; };
+		37CD024C252D7528009FC552 /* MarkraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0222252D7527009FC552 /* MarkraApp.swift */; };
+		37CD024D252D7528009FC552 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0223252D7527009FC552 /* AppView.swift */; };
+		37CD024E252D7528009FC552 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0223252D7527009FC552 /* AppView.swift */; };
+		37CD024F252D7528009FC552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CD0224252D7528009FC552 /* Assets.xcassets */; };
+		37CD0250252D7528009FC552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37CD0224252D7528009FC552 /* Assets.xcassets */; };
+		37CD0264252D75D8009FC552 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0263252D75D8009FC552 /* EditorView.swift */; };
+		37CD0265252D75D8009FC552 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0263252D75D8009FC552 /* EditorView.swift */; };
+		37CD026C252D770F009FC552 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 37CD026B252D770F009FC552 /* ComposableArchitecture */; };
+		37CD0281252D78E4009FC552 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 37CD0280252D78E4009FC552 /* ComposableArchitecture */; };
+		37CD0289252D7BDC009FC552 /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0288252D7BDC009FC552 /* EditorState.swift */; };
+		37CD028A252D7BDC009FC552 /* EditorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0288252D7BDC009FC552 /* EditorState.swift */; };
+		37CD0290252D7C00009FC552 /* EditorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD028F252D7C00009FC552 /* EditorAction.swift */; };
+		37CD0291252D7C00009FC552 /* EditorAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD028F252D7C00009FC552 /* EditorAction.swift */; };
+		37CD0297252D7C76009FC552 /* appStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0296252D7C76009FC552 /* appStore.swift */; };
+		37CD0298252D7C76009FC552 /* appStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0296252D7C76009FC552 /* appStore.swift */; };
+		37CD02A2252D7DAB009FC552 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02A1252D7DAB009FC552 /* AppState.swift */; };
+		37CD02A3252D7DAB009FC552 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02A1252D7DAB009FC552 /* AppState.swift */; };
+		37CD02A9252D7DB4009FC552 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02A8252D7DB4009FC552 /* AppAction.swift */; };
+		37CD02AA252D7DB4009FC552 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02A8252D7DB4009FC552 /* AppAction.swift */; };
+		37CD02B0252D7F80009FC552 /* editorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02AF252D7F80009FC552 /* editorReducer.swift */; };
+		37CD02B1252D7F80009FC552 /* editorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02AF252D7F80009FC552 /* editorReducer.swift */; };
+		37CD02B7252D8410009FC552 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02B6252D8410009FC552 /* AppEnvironment.swift */; };
+		37CD02B8252D8410009FC552 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02B6252D8410009FC552 /* AppEnvironment.swift */; };
+		37CD02E42530FC88009FC552 /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
+		37CD02EB2530FC88009FC552 /* Markdown2JiraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD02EA2530FC88009FC552 /* Markdown2JiraTests.swift */; };
+		37CD02F02530FC88009FC552 /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
+		37CD02F12530FC88009FC552 /* Markdown2Jira.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		379E371C253111630078B169 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CD021D252D7527009FC552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CD02DA2530FC88009FC552;
+			remoteInfo = Markdown2Jira;
+		};
+		37CD023A252D7528009FC552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CD021D252D7527009FC552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CD0228252D7528009FC552;
+			remoteInfo = "Markra (iOS)";
+		};
+		37CD0245252D7528009FC552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CD021D252D7527009FC552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CD0230252D7528009FC552;
+			remoteInfo = "Markra (macOS)";
+		};
+		37CD02E52530FC88009FC552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CD021D252D7527009FC552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CD02DA2530FC88009FC552;
+			remoteInfo = Markdown2Jira;
+		};
+		37CD02EE2530FC88009FC552 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37CD021D252D7527009FC552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37CD02DA2530FC88009FC552;
+			remoteInfo = Markdown2Jira;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		37CD02F52530FC88009FC552 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				37CD02F12530FC88009FC552 /* Markdown2Jira.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		37CD0222252D7527009FC552 /* MarkraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkraApp.swift; sourceTree = "<group>"; };
+		37CD0223252D7527009FC552 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		37CD0224252D7528009FC552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37CD0229252D7528009FC552 /* Markra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD022C252D7528009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD0231252D7528009FC552 /* Markra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markra.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD0233252D7528009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD0234252D7528009FC552 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		37CD0239252D7528009FC552 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD023D252D7528009FC552 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
+		37CD023F252D7528009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD0244252D7528009FC552 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD0248252D7528009FC552 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
+		37CD024A252D7528009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD0263252D75D8009FC552 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		37CD0271252D787A009FC552 /* Markdown2Jira.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown2Jira.swift; sourceTree = "<group>"; };
+		37CD0288252D7BDC009FC552 /* EditorState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorState.swift; sourceTree = "<group>"; };
+		37CD028F252D7C00009FC552 /* EditorAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorAction.swift; sourceTree = "<group>"; };
+		37CD0296252D7C76009FC552 /* appStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appStore.swift; sourceTree = "<group>"; };
+		37CD02A1252D7DAB009FC552 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		37CD02A8252D7DB4009FC552 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		37CD02AF252D7F80009FC552 /* editorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editorReducer.swift; sourceTree = "<group>"; };
+		37CD02B6252D8410009FC552 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Markdown2Jira.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD02DE2530FC88009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37CD02E32530FC88009FC552 /* Markdown2JiraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Markdown2JiraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37CD02EA2530FC88009FC552 /* Markdown2JiraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown2JiraTests.swift; sourceTree = "<group>"; };
+		37CD02EC2530FC88009FC552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		37CD0226252D7528009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD026C252D770F009FC552 /* ComposableArchitecture in Frameworks */,
+				37CD02F02530FC88009FC552 /* Markdown2Jira.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD022E252D7528009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				372F22552531027E0011503C /* Markdown2Jira.framework in Frameworks */,
+				37CD0281252D78E4009FC552 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0236252D7528009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0241252D7528009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02D82530FC88009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37926823253102E400C1DB38 /* Scmark in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02E02530FC88009FC552 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD02E42530FC88009FC552 /* Markdown2Jira.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		37CD021C252D7527009FC552 = {
+			isa = PBXGroup;
+			children = (
+				37CD0221252D7527009FC552 /* Shared */,
+				37CD022B252D7528009FC552 /* iOS */,
+				37CD0232252D7528009FC552 /* macOS */,
+				37CD023C252D7528009FC552 /* Tests iOS */,
+				37CD0247252D7528009FC552 /* Tests macOS */,
+				37CD02DC2530FC88009FC552 /* Markdown2Jira */,
+				37CD02E92530FC88009FC552 /* Markdown2JiraTests */,
+				37CD022A252D7528009FC552 /* Products */,
+				37CD027F252D78E4009FC552 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		37CD0221252D7527009FC552 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				37CD0222252D7527009FC552 /* MarkraApp.swift */,
+				37CD0223252D7527009FC552 /* AppView.swift */,
+				37CD0263252D75D8009FC552 /* EditorView.swift */,
+				37CD0288252D7BDC009FC552 /* EditorState.swift */,
+				37CD0296252D7C76009FC552 /* appStore.swift */,
+				37CD02AF252D7F80009FC552 /* editorReducer.swift */,
+				37CD02B6252D8410009FC552 /* AppEnvironment.swift */,
+				37CD02A1252D7DAB009FC552 /* AppState.swift */,
+				37CD02A8252D7DB4009FC552 /* AppAction.swift */,
+				37CD028F252D7C00009FC552 /* EditorAction.swift */,
+				37CD0224252D7528009FC552 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		37CD022A252D7528009FC552 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				37CD0229252D7528009FC552 /* Markra.app */,
+				37CD0231252D7528009FC552 /* Markra.app */,
+				37CD0239252D7528009FC552 /* Tests iOS.xctest */,
+				37CD0244252D7528009FC552 /* Tests macOS.xctest */,
+				37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */,
+				37CD02E32530FC88009FC552 /* Markdown2JiraTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		37CD022B252D7528009FC552 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				37CD022C252D7528009FC552 /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		37CD0232252D7528009FC552 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				37CD0233252D7528009FC552 /* Info.plist */,
+				37CD0234252D7528009FC552 /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		37CD023C252D7528009FC552 /* Tests iOS */ = {
+			isa = PBXGroup;
+			children = (
+				37CD023D252D7528009FC552 /* Tests_iOS.swift */,
+				37CD023F252D7528009FC552 /* Info.plist */,
+			);
+			path = "Tests iOS";
+			sourceTree = "<group>";
+		};
+		37CD0247252D7528009FC552 /* Tests macOS */ = {
+			isa = PBXGroup;
+			children = (
+				37CD0248252D7528009FC552 /* Tests_macOS.swift */,
+				37CD024A252D7528009FC552 /* Info.plist */,
+			);
+			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		37CD027F252D78E4009FC552 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37CD02DC2530FC88009FC552 /* Markdown2Jira */ = {
+			isa = PBXGroup;
+			children = (
+				37CD0271252D787A009FC552 /* Markdown2Jira.swift */,
+				37CD02DE2530FC88009FC552 /* Info.plist */,
+			);
+			path = Markdown2Jira;
+			sourceTree = "<group>";
+		};
+		37CD02E92530FC88009FC552 /* Markdown2JiraTests */ = {
+			isa = PBXGroup;
+			children = (
+				37CD02EA2530FC88009FC552 /* Markdown2JiraTests.swift */,
+				37CD02EC2530FC88009FC552 /* Info.plist */,
+			);
+			path = Markdown2JiraTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		37CD02D62530FC88009FC552 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		37CD0228252D7528009FC552 /* Markra (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD0253252D7528009FC552 /* Build configuration list for PBXNativeTarget "Markra (iOS)" */;
+			buildPhases = (
+				37CD0225252D7528009FC552 /* Sources */,
+				37CD0226252D7528009FC552 /* Frameworks */,
+				37CD0227252D7528009FC552 /* Resources */,
+				37CD02F52530FC88009FC552 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CD02EF2530FC88009FC552 /* PBXTargetDependency */,
+			);
+			name = "Markra (iOS)";
+			packageProductDependencies = (
+				37CD026B252D770F009FC552 /* ComposableArchitecture */,
+			);
+			productName = "Markra (iOS)";
+			productReference = 37CD0229252D7528009FC552 /* Markra.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37CD0230252D7528009FC552 /* Markra (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD0256252D7528009FC552 /* Build configuration list for PBXNativeTarget "Markra (macOS)" */;
+			buildPhases = (
+				37CD022D252D7528009FC552 /* Sources */,
+				37CD022E252D7528009FC552 /* Frameworks */,
+				37CD022F252D7528009FC552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				379E371D253111630078B169 /* PBXTargetDependency */,
+			);
+			name = "Markra (macOS)";
+			packageProductDependencies = (
+				37CD0280252D78E4009FC552 /* ComposableArchitecture */,
+			);
+			productName = "Markra (macOS)";
+			productReference = 37CD0231252D7528009FC552 /* Markra.app */;
+			productType = "com.apple.product-type.application";
+		};
+		37CD0238252D7528009FC552 /* Tests iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD0259252D7528009FC552 /* Build configuration list for PBXNativeTarget "Tests iOS" */;
+			buildPhases = (
+				37CD0235252D7528009FC552 /* Sources */,
+				37CD0236252D7528009FC552 /* Frameworks */,
+				37CD0237252D7528009FC552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CD023B252D7528009FC552 /* PBXTargetDependency */,
+			);
+			name = "Tests iOS";
+			productName = "Tests iOS";
+			productReference = 37CD0239252D7528009FC552 /* Tests iOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		37CD0243252D7528009FC552 /* Tests macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD025C252D7528009FC552 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
+			buildPhases = (
+				37CD0240252D7528009FC552 /* Sources */,
+				37CD0241252D7528009FC552 /* Frameworks */,
+				37CD0242252D7528009FC552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CD0246252D7528009FC552 /* PBXTargetDependency */,
+			);
+			name = "Tests macOS";
+			productName = "Tests macOS";
+			productReference = 37CD0244252D7528009FC552 /* Tests macOS.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		37CD02DA2530FC88009FC552 /* Markdown2Jira */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD02F22530FC88009FC552 /* Build configuration list for PBXNativeTarget "Markdown2Jira" */;
+			buildPhases = (
+				37CD02D62530FC88009FC552 /* Headers */,
+				37CD02D72530FC88009FC552 /* Sources */,
+				37CD02D82530FC88009FC552 /* Frameworks */,
+				37CD02D92530FC88009FC552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Markdown2Jira;
+			packageProductDependencies = (
+				37926822253102E400C1DB38 /* Scmark */,
+			);
+			productName = Markdown2Jira;
+			productReference = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		37CD02E22530FC88009FC552 /* Markdown2JiraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37CD02F62530FC88009FC552 /* Build configuration list for PBXNativeTarget "Markdown2JiraTests" */;
+			buildPhases = (
+				37CD02DF2530FC88009FC552 /* Sources */,
+				37CD02E02530FC88009FC552 /* Frameworks */,
+				37CD02E12530FC88009FC552 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				37CD02E62530FC88009FC552 /* PBXTargetDependency */,
+			);
+			name = Markdown2JiraTests;
+			productName = Markdown2JiraTests;
+			productReference = 37CD02E32530FC88009FC552 /* Markdown2JiraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		37CD021D252D7527009FC552 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					37CD0228252D7528009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					37CD0230252D7528009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					37CD0238252D7528009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 37CD0228252D7528009FC552;
+					};
+					37CD0243252D7528009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 37CD0230252D7528009FC552;
+					};
+					37CD02DA2530FC88009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					37CD02E22530FC88009FC552 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 37CD0220252D7527009FC552 /* Build configuration list for PBXProject "Markra" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 37CD021C252D7527009FC552;
+			packageReferences = (
+				37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				37CD0278252D789B009FC552 /* XCRemoteSwiftPackageReference "scmark" */,
+			);
+			productRefGroup = 37CD022A252D7528009FC552 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				37CD0228252D7528009FC552 /* Markra (iOS) */,
+				37CD0230252D7528009FC552 /* Markra (macOS) */,
+				37CD0238252D7528009FC552 /* Tests iOS */,
+				37CD0243252D7528009FC552 /* Tests macOS */,
+				37CD02DA2530FC88009FC552 /* Markdown2Jira */,
+				37CD02E22530FC88009FC552 /* Markdown2JiraTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		37CD0227252D7528009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD024F252D7528009FC552 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD022F252D7528009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD0250252D7528009FC552 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0237252D7528009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0242252D7528009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02D92530FC88009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02E12530FC88009FC552 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		37CD0225252D7528009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD0290252D7C00009FC552 /* EditorAction.swift in Sources */,
+				37CD0289252D7BDC009FC552 /* EditorState.swift in Sources */,
+				37CD0264252D75D8009FC552 /* EditorView.swift in Sources */,
+				37CD02B0252D7F80009FC552 /* editorReducer.swift in Sources */,
+				37CD02A2252D7DAB009FC552 /* AppState.swift in Sources */,
+				37CD02A9252D7DB4009FC552 /* AppAction.swift in Sources */,
+				37CD024D252D7528009FC552 /* AppView.swift in Sources */,
+				37CD0297252D7C76009FC552 /* appStore.swift in Sources */,
+				37CD024B252D7528009FC552 /* MarkraApp.swift in Sources */,
+				37CD02B7252D8410009FC552 /* AppEnvironment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD022D252D7528009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD0291252D7C00009FC552 /* EditorAction.swift in Sources */,
+				37CD028A252D7BDC009FC552 /* EditorState.swift in Sources */,
+				37CD0265252D75D8009FC552 /* EditorView.swift in Sources */,
+				37CD02B1252D7F80009FC552 /* editorReducer.swift in Sources */,
+				37CD02A3252D7DAB009FC552 /* AppState.swift in Sources */,
+				37CD02AA252D7DB4009FC552 /* AppAction.swift in Sources */,
+				37CD024E252D7528009FC552 /* AppView.swift in Sources */,
+				37CD0298252D7C76009FC552 /* appStore.swift in Sources */,
+				37CD024C252D7528009FC552 /* MarkraApp.swift in Sources */,
+				37CD02B8252D8410009FC552 /* AppEnvironment.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0235252D7528009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD023E252D7528009FC552 /* Tests_iOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD0240252D7528009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD0249252D7528009FC552 /* Tests_macOS.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02D72530FC88009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37926817253102C500C1DB38 /* Markdown2Jira.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		37CD02DF2530FC88009FC552 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37CD02EB2530FC88009FC552 /* Markdown2JiraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		379E371D253111630078B169 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CD02DA2530FC88009FC552 /* Markdown2Jira */;
+			targetProxy = 379E371C253111630078B169 /* PBXContainerItemProxy */;
+		};
+		37CD023B252D7528009FC552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CD0228252D7528009FC552 /* Markra (iOS) */;
+			targetProxy = 37CD023A252D7528009FC552 /* PBXContainerItemProxy */;
+		};
+		37CD0246252D7528009FC552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CD0230252D7528009FC552 /* Markra (macOS) */;
+			targetProxy = 37CD0245252D7528009FC552 /* PBXContainerItemProxy */;
+		};
+		37CD02E62530FC88009FC552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CD02DA2530FC88009FC552 /* Markdown2Jira */;
+			targetProxy = 37CD02E52530FC88009FC552 /* PBXContainerItemProxy */;
+		};
+		37CD02EF2530FC88009FC552 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37CD02DA2530FC88009FC552 /* Markdown2Jira */;
+			targetProxy = 37CD02EE2530FC88009FC552 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		37CD0251252D7528009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		37CD0252252D7528009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		37CD0254252D7528009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N53599EQ72;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markra;
+				PRODUCT_NAME = Markra;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		37CD0255252D7528009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N53599EQ72;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markra;
+				PRODUCT_NAME = Markra;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37CD0257252D7528009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markra;
+				PRODUCT_NAME = Markra;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		37CD0258252D7528009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markra;
+				PRODUCT_NAME = Markra;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		37CD025A252D7528009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.duan.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Markra (iOS)";
+			};
+			name = Debug;
+		};
+		37CD025B252D7528009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.duan.Tests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Markra (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		37CD025D252D7528009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.duan.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = "Markra (macOS)";
+			};
+			name = Debug;
+		};
+		37CD025E252D7528009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Tests macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ca.duan.Tests-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = "Markra (macOS)";
+			};
+			name = Release;
+		};
+		37CD02F32530FC88009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Markdown2Jira/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2Jira;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		37CD02F42530FC88009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Markdown2Jira/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2Jira;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s i386 x86_64";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		37CD02F72530FC88009FC552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Markdown2JiraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2JiraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Debug;
+		};
+		37CD02F82530FC88009FC552 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = Markdown2JiraTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2JiraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37CD0220252D7527009FC552 /* Build configuration list for PBXProject "Markra" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD0251252D7528009FC552 /* Debug */,
+				37CD0252252D7528009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD0253252D7528009FC552 /* Build configuration list for PBXNativeTarget "Markra (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD0254252D7528009FC552 /* Debug */,
+				37CD0255252D7528009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD0256252D7528009FC552 /* Build configuration list for PBXNativeTarget "Markra (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD0257252D7528009FC552 /* Debug */,
+				37CD0258252D7528009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD0259252D7528009FC552 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD025A252D7528009FC552 /* Debug */,
+				37CD025B252D7528009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD025C252D7528009FC552 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD025D252D7528009FC552 /* Debug */,
+				37CD025E252D7528009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD02F22530FC88009FC552 /* Build configuration list for PBXNativeTarget "Markdown2Jira" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD02F32530FC88009FC552 /* Debug */,
+				37CD02F42530FC88009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		37CD02F62530FC88009FC552 /* Build configuration list for PBXNativeTarget "Markdown2JiraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37CD02F72530FC88009FC552 /* Debug */,
+				37CD02F82530FC88009FC552 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
+		37CD0278252D789B009FC552 /* XCRemoteSwiftPackageReference "scmark" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dduan/scmark";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37926822253102E400C1DB38 /* Scmark */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37CD0278252D789B009FC552 /* XCRemoteSwiftPackageReference "scmark" */;
+			productName = Scmark;
+		};
+		37CD026B252D770F009FC552 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		37CD0280252D78E4009FC552 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 37CD021D252D7527009FC552 /* Project object */;
+}
