@@ -11,15 +11,16 @@ let editorReducer = Reducer<EditorState, EditorAction, AppEnvironment> { state, 
 
         state.markdown = markdown
         return Effect(value: .editDelayCompleted)
-            .debounce(id: "editDelayCompleted", for: 0.3, scheduler: env.mainQueue)
+            .debounce(id: "editDelayCompleted", for: 0.2, scheduler: env.mainQueue())
 
     case .editDelayCompleted:
         state.isTranslating = true
         let markdown = state.markdown
+        env.document.text = markdown
         return Future { complete in
-            env.backgroundQueue.schedule {
+            env.backgroundQueue().schedule {
                 let jira = markdown2Jira(markdown)
-                env.mainQueue.schedule {
+                env.mainQueue().schedule {
                     complete(.success(.updateJira(jira)))
                 }
             }

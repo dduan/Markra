@@ -1,3 +1,3 @@
-struct AppState {
+struct AppState: Hashable {
     var editor: EditorState
 }
