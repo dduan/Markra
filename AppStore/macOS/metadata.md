@@ -16,7 +16,7 @@ Edit or open a CommonMark file, your Jira ticket will appear alongside it in pla
 
 
 ## Keywords
-Markdown, CommonMark, JIRA, Plaintext, JIRA Syntax, Editor
+Markdown, CommonMark, JIRA, Plaintext, JIRA Syntax, Text Editor, Mark down, TextEditor, JIRA Ticket
 
 ## Support URL
 
