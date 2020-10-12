@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		372F22552531027E0011503C /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
 		378F2DF42532AD83008C0082 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DF32532AD83008C0082 /* MarkdownDocument.swift */; };
 		378F2DF52532AD83008C0082 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DF32532AD83008C0082 /* MarkdownDocument.swift */; };
 		378F2DFC2532BD6E008C0082 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */; };
@@ -18,6 +17,8 @@
 		378F2E862533B257008C0082 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E842533B257008C0082 /* AppLayout.swift */; };
 		378F2E932533B838008C0082 /* AppToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E922533B838008C0082 /* AppToolbar.swift */; };
 		378F2E9A2533B85C008C0082 /* AppToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E992533B85C008C0082 /* AppToolbar.swift */; };
+		378F2EA62533CD57008C0082 /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
+		378F2EA72533CD57008C0082 /* Markdown2Jira.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37926817253102C500C1DB38 /* Markdown2Jira.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD0271252D787A009FC552 /* Markdown2Jira.swift */; };
 		37926823253102E400C1DB38 /* Scmark in Frameworks */ = {isa = PBXBuildFile; productRef = 37926822253102E400C1DB38 /* Scmark */; };
 		37CD023E252D7528009FC552 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CD023D252D7528009FC552 /* Tests_iOS.swift */; };
@@ -91,6 +92,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		378F2EA82533CD57008C0082 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				378F2EA72533CD57008C0082 /* Markdown2Jira.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37CD02F52530FC88009FC552 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,7 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372F22552531027E0011503C /* Markdown2Jira.framework in Frameworks */,
+				378F2EA62533CD57008C0082 /* Markdown2Jira.framework in Frameworks */,
 				37CD0281252D78E4009FC552 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +383,7 @@
 				37CD022D252D7528009FC552 /* Sources */,
 				37CD022E252D7528009FC552 /* Frameworks */,
 				37CD022F252D7528009FC552 /* Resources */,
+				378F2EA82533CD57008C0082 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
