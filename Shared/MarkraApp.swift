@@ -24,6 +24,14 @@ struct MarkraScene: Scene {
                 storeCache.map[file.document.id] = nil
             }
         }
+        .commands {
+            CommandGroup(replacing: .help) {
+                Button("Markra Help") {
+                    NSWorkspace.shared.open(URL(string: "https://duan.ca/Markra")!)
+                }
+                .keyboardShortcut("?", modifiers: .command)
+            }
+        }
 //        .commands {
 //            CommandGroup(before: .pasteboard) {
 //                Button("Copy Jira") {
