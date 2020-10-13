@@ -1,8 +1,15 @@
 import ComposableArchitecture
 import SwiftUI
+import Introspect
 
 let kMarkdownPlaceholderText = "Enter Markdown here…"
 let kJiraPlaceholderText = "Plaintext format JIRA appears here…"
+
+#if os(macOS)
+typealias NativeTextView = NSTextView
+#else
+typealias NativeTextView = UITextView
+#endif
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
@@ -11,6 +18,7 @@ struct EditorView: View {
             Group {
                 ZStack {
                     TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
+                        .makeFirstResponder(NativeTextView.self)
                     if viewStore.markdown.isEmpty {
                         Text(kMarkdownPlaceholderText)
                             .foregroundColor(.secondary)

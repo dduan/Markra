@@ -6,11 +6,10 @@ struct AppView: View {
     let cleanUp: () -> Void
     var body: some View {
         WithViewStore(store) { viewStore in
-            Group {
-                EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
-                    .toolbar(content: { AppToolbar(viewStore: viewStore) })
-                    .onDisappear(perform: cleanUp)
-            }
+            EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
+                .focusedValue(\.appStore, viewStore)
+                .toolbar(content: { AppToolbar(viewStore: viewStore) })
+                .onDisappear(perform: cleanUp)
         }
     }
 }

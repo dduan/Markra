@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3708021C25356E1B00087943 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 3708021B25356E1B00087943 /* Introspect */; };
+		3708022225356E8500087943 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 3708022125356E8500087943 /* Introspect */; };
+		370802282535719100087943 /* View+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370802272535719100087943 /* View+FirstResponder.swift */; };
+		3708022E2535719400087943 /* View+FirstResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3708022D2535719400087943 /* View+FirstResponder.swift */; };
 		378F2DF42532AD83008C0082 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DF32532AD83008C0082 /* MarkdownDocument.swift */; };
 		378F2DF52532AD83008C0082 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DF32532AD83008C0082 /* MarkdownDocument.swift */; };
 		378F2DFC2532BD6E008C0082 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */; };
@@ -117,6 +121,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		370802272535719100087943 /* View+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstResponder.swift"; sourceTree = "<group>"; };
+		3708022D2535719400087943 /* View+FirstResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+FirstResponder.swift"; sourceTree = "<group>"; };
 		378F2DF32532AD83008C0082 /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		378F2E032532C892008C0082 /* IUOBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUOBox.swift; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CD026C252D770F009FC552 /* ComposableArchitecture in Frameworks */,
+				3708021C25356E1B00087943 /* Introspect in Frameworks */,
 				37CD02F02530FC88009FC552 /* Markdown2Jira.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				378F2EA62533CD57008C0082 /* Markdown2Jira.framework in Frameworks */,
+				3708022225356E8500087943 /* Introspect in Frameworks */,
 				37CD0281252D78E4009FC552 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +292,7 @@
 			children = (
 				37CD022C252D7528009FC552 /* Info.plist */,
 				378F2E992533B85C008C0082 /* AppToolbar.swift */,
+				370802272535719100087943 /* View+FirstResponder.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 			children = (
 				37CD0233252D7528009FC552 /* Info.plist */,
 				37CD0234252D7528009FC552 /* macOS.entitlements */,
+				3708022D2535719400087943 /* View+FirstResponder.swift */,
 				378F2E922533B838008C0082 /* AppToolbar.swift */,
 			);
 			path = macOS;
@@ -371,6 +381,7 @@
 			name = "Markra (iOS)";
 			packageProductDependencies = (
 				37CD026B252D770F009FC552 /* ComposableArchitecture */,
+				3708021B25356E1B00087943 /* Introspect */,
 			);
 			productName = "Markra (iOS)";
 			productReference = 37CD0229252D7528009FC552 /* Markra.app */;
@@ -393,6 +404,7 @@
 			name = "Markra (macOS)";
 			packageProductDependencies = (
 				37CD0280252D78E4009FC552 /* ComposableArchitecture */,
+				3708022125356E8500087943 /* Introspect */,
 			);
 			productName = "Markra (macOS)";
 			productReference = 37CD0231252D7528009FC552 /* Markra.app */;
@@ -516,6 +528,7 @@
 			packageReferences = (
 				37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				37CD0278252D789B009FC552 /* XCRemoteSwiftPackageReference "scmark" */,
+				3708021A25356E1B00087943 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 37CD022A252D7528009FC552 /* Products */;
 			projectDirPath = "";
@@ -587,6 +600,7 @@
 				378F2E852533B257008C0082 /* AppLayout.swift in Sources */,
 				37CD0289252D7BDC009FC552 /* EditorState.swift in Sources */,
 				37CD0264252D75D8009FC552 /* EditorView.swift in Sources */,
+				370802282535719100087943 /* View+FirstResponder.swift in Sources */,
 				378F2E042532C892008C0082 /* IUOBox.swift in Sources */,
 				37CD02B0252D7F80009FC552 /* editorReducer.swift in Sources */,
 				37CD02A2252D7DAB009FC552 /* AppState.swift in Sources */,
@@ -609,6 +623,7 @@
 				378F2E862533B257008C0082 /* AppLayout.swift in Sources */,
 				37CD028A252D7BDC009FC552 /* EditorState.swift in Sources */,
 				37CD0265252D75D8009FC552 /* EditorView.swift in Sources */,
+				3708022E2535719400087943 /* View+FirstResponder.swift in Sources */,
 				378F2E052532C892008C0082 /* IUOBox.swift in Sources */,
 				37CD02B1252D7F80009FC552 /* editorReducer.swift in Sources */,
 				37CD02A3252D7DAB009FC552 /* AppState.swift in Sources */,
@@ -850,8 +865,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = GBRF5PDZ46;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -871,8 +889,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = GBRF5PDZ46;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -970,8 +991,11 @@
 		37CD02F32530FC88009FC552 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GBRF5PDZ46;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -985,6 +1009,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2Jira;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
@@ -996,8 +1021,11 @@
 		37CD02F42530FC88009FC552 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = GBRF5PDZ46;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1011,6 +1039,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ca.duan.Markdown2Jira;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_VERSION = 5.0;
@@ -1122,6 +1151,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3708021A25356E1B00087943 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		37CD026A252D770F009FC552 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -1141,6 +1178,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3708021B25356E1B00087943 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3708021A25356E1B00087943 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
+		3708022125356E8500087943 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3708021A25356E1B00087943 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		37926822253102E400C1DB38 /* Scmark */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37CD0278252D789B009FC552 /* XCRemoteSwiftPackageReference "scmark" */;

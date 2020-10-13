@@ -8,6 +8,17 @@ struct MarkraApp: App {
     }
 }
 
+struct FocusedAppStoreKey: FocusedValueKey {
+    typealias Value = ViewStore<AppState, AppAction>
+}
+
+extension FocusedValues {
+    var appStore: FocusedAppStoreKey.Value? {
+        get { self [FocusedAppStoreKey.self] }
+        set { self [FocusedAppStoreKey.self] = newValue }
+    }
+}
+
 class DocumentStoreMap {
     var map: [UUID: Store<AppState, AppAction>] = [:]
 }
@@ -25,24 +36,34 @@ struct MarkraScene: Scene {
             }
         }
         .commands {
-            CommandGroup(replacing: .help) {
-                Button("Markra Help") {
-                    NSWorkspace.shared.open(URL(string: "https://duan.ca/Markra")!)
-                }
-                .keyboardShortcut("?", modifiers: .command)
-            }
+            AppCommands()
         }
-//        .commands {
-//            CommandGroup(before: .pasteboard) {
-//                Button("Copy Jira") {
-//                    ViewStore(appStore).send(.copyJira)
-//                }
-//                .keyboardShortcut("c", modifiers: [.shift, .command])
-//                Button("Delete All") {
-//                    ViewStore(appStore).send(.deleteAll)
-//                }
-//                .keyboardShortcut("d", modifiers: [.shift, .command])
-//            }
-//        }
+    }
+}
+
+struct AppCommands: Commands {
+    @FocusedValue(\.appStore) var focusedAppStore: ViewStore<AppState, AppAction>?
+
+    var body: some Commands {
+        CommandGroup(before: .pasteboard) {
+            Button("Copy Jira") {
+                focusedAppStore?.send(.copyJira)
+            }
+            .keyboardShortcut("c", modifiers: [.shift, .command])
+            Button("Delete All") {
+                focusedAppStore?.send(.deleteAll)
+            }
+            .keyboardShortcut("d", modifiers: [.shift, .command])
+        }
+        CommandGroup(replacing: .help) {
+            Button("Markra Help") {
+                #if os(macOS)
+                NSWorkspace.shared.open(URL(string: "https://duan.ca/Markra")!)
+                #else
+                UIApplication.shared.open(URL(string: "https://duan.ca/Markra")!)
+                #endif
+            }
+            .keyboardShortcut("?", modifiers: .command)
+        }
     }
 }
