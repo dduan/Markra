@@ -13,7 +13,8 @@ struct AppToolbar: ToolbarContent {
                     Image(systemName: "doc.on.clipboard")
                 }
             )
-            .help("Paste Markdown from clipboard")
+            .help("Paste Markdown from clipboard (⇧⌘P)")
+            .keyboardShortcut("p", modifiers: [.shift, .command])
         }
         ToolbarItem(placement: .automatic) {
             Button(
@@ -24,8 +25,9 @@ struct AppToolbar: ToolbarContent {
                     Image(systemName: "doc.on.doc")
                 }
             )
-            .disabled(viewStore.editor.jira.isEmpty)
-            .help("Copy JIRA text to clipboard")
+            .disabled(viewStore.editor.markdown.isEmpty)
+            .help("Copy JIRA text to clipboard (⇧⌘C)")
+            .keyboardShortcut("c", modifiers: [.shift, .command])
         }
     }
 }

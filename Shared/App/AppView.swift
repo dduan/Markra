@@ -3,10 +3,14 @@ import SwiftUI
 
 struct AppView: View {
     let store: Store<AppState, AppAction>
+    let cleanUp: () -> Void
     var body: some View {
         WithViewStore(store) { viewStore in
-            EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
-                .toolbar(content: { AppToolbar(viewStore: viewStore) })
+            Group {
+                EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
+                    .toolbar(content: { AppToolbar(viewStore: viewStore) })
+                    .onDisappear(perform: cleanUp)
+            }
         }
     }
 }
@@ -20,7 +24,7 @@ let testAppStore = Store<AppState, AppAction>(
 
 struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        AppView(store: testAppStore)
+        AppView(store: testAppStore, cleanUp: {})
     }
 }
 #endif

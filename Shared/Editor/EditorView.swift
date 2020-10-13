@@ -11,12 +11,6 @@ struct EditorView: View {
             Group {
                 ZStack {
                     TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
-                        .onAppear {
-                            // HACK: for some reason the first character change causes significant delay (flicker, e.g. enter the first character, it disappears for a second, then comes back. If more than 1 character is entered while the first is disappearing, it'd be gone).
-                            let text = viewStore.markdown
-                            viewStore.send(.editMarkdown(" "))
-                            viewStore.send(.editMarkdown(text))
-                        }
                     if viewStore.markdown.isEmpty {
                         Text(kMarkdownPlaceholderText)
                             .foregroundColor(.secondary)

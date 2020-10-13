@@ -9,7 +9,7 @@ extension UTType {
 
 struct MarkdownDocument: FileDocument {
     var text: String
-
+    let id = UUID()
     init(text: String = "") {
         self.text = text
     }
