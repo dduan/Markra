@@ -8,16 +8,16 @@ struct MarkraApp: App {
     }
 }
 
-struct FocusedAppStoreKey: FocusedValueKey {
-    typealias Value = ViewStore<AppState, AppAction>
-}
-
-extension FocusedValues {
-    var appStore: FocusedAppStoreKey.Value? {
-        get { self [FocusedAppStoreKey.self] }
-        set { self [FocusedAppStoreKey.self] = newValue }
-    }
-}
+//struct FocusedAppStoreKey: FocusedValueKey {
+//    typealias Value = (AppAction) -> Void
+//}
+//
+//extension FocusedValues {
+//    var appStore: FocusedAppStoreKey.Value? {
+//        get { self[FocusedAppStoreKey.self] }
+//        set { self[FocusedAppStoreKey.self] = newValue }
+//    }
+//}
 
 class DocumentStoreMap {
     var map: [UUID: Store<AppState, AppAction>] = [:]
@@ -25,6 +25,8 @@ class DocumentStoreMap {
 
 struct MarkraScene: Scene {
     var storeCache = DocumentStoreMap()
+    // TODO: for some reason this leaks hella memory in Version 12.2 beta 3 (12B5035g)
+//    @FocusedValue(\.appStore) var focusedAppStore: ((AppAction) -> Void)?
 
     var body: some Scene {
         DocumentGroup(newDocument: MarkdownDocument()) { file -> AppView in
@@ -37,24 +39,26 @@ struct MarkraScene: Scene {
         }
         .commands {
             AppCommands()
+//            AppCommands(focusedStore: _focusedAppStore)
         }
     }
 }
-
+//
 struct AppCommands: Commands {
-    @FocusedValue(\.appStore) var focusedAppStore: ViewStore<AppState, AppAction>?
-
+//    let focusedStore:  FocusedValue<(AppAction) -> Void>
+//
     var body: some Commands {
-        CommandGroup(before: .pasteboard) {
-            Button("Copy Jira") {
-                focusedAppStore?.send(.copyJira)
-            }
-            .keyboardShortcut("c", modifiers: [.shift, .command])
-            Button("Delete All") {
-                focusedAppStore?.send(.deleteAll)
-            }
-            .keyboardShortcut("d", modifiers: [.shift, .command])
-        }
+//        CommandGroup(before: .pasteboard) {
+//            Button("Copy Jira") {
+//                focusedStore.wrappedValue?(.copyJira)
+//            }
+//            .keyboardShortcut("c", modifiers: [.shift, .command])
+//            Button("Delete All") {
+//                focusedStore.wrappedValue?(.deleteAll)
+//            }
+//            .keyboardShortcut("d", modifiers: [.shift, .command])
+//        }
+
         CommandGroup(replacing: .help) {
             Button("Markra Help") {
                 #if os(macOS)

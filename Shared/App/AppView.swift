@@ -7,10 +7,11 @@ struct AppView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
-                .focusedValue(\.appStore, viewStore)
+//                .focusedValue(\.appStore, viewStore.send)
                 .toolbar(content: { AppToolbar(viewStore: viewStore) })
                 .onDisappear(perform: cleanUp)
         }
+
     }
 }
 
