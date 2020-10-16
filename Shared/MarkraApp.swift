@@ -37,12 +37,11 @@ struct MarkraScene: Scene {
             }
         }
         .commands {
-//            AppCommands()
             AppCommands(focusedStore: _focusedAppStore)
         }
     }
 }
-//
+
 struct AppCommands: Commands {
     let focusedStore:  FocusedValue<(AppAction) -> Void>
 
