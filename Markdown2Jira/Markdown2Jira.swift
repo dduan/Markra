@@ -1,7 +1,12 @@
 import Scmark
 import Foundation
 
-let kHighlightingLanguages: Set<String> = ["java", "actionscript", "ada", "applescript", "bash", "c", "c#", "c++", "css", "erlang", "go", "groovy", "haskell", "html", "javascript", "json", "lua", "nyan", "objc", "perl", "php", "python", "r", "ruby", "scala", "sql", "swift", "visualbasic", "xml", "yaml",]
+let kHighlightingLanguages: Set<String> = [
+    "java", "actionscript", "ada", "applescript", "bash", "c", "c#", "c++", "css", "erlang", "go", "groovy",
+    "haskell", "html", "javascript", "json", "lua", "nyan", "objc", "perl", "php", "python", "r", "ruby",
+    "scala", "sql", "swift", "visualbasic", "xml", "yaml"
+]
+
 public func markdown2Jira(_ markdown: String) -> String {
     Parser(options: .smart).parse(document: markdown).renderJira()
 }
@@ -11,7 +16,7 @@ extension Node {
         var stack: [NodeType] = []
         var texts: [String] = []
         var result: [String] = []
-        var blockBeginings: [Int] = []
+        var blockBeginnings: [Int] = []
         var listPrefixes: String = ""
 
         func consolidate() -> String {
@@ -61,9 +66,9 @@ extension Node {
                 texts.append(literal)
 
             case (.enter, .blockQuote):
-                blockBeginings.append(result.count)
+                blockBeginnings.append(result.count)
             case (.enter, .list):
-                blockBeginings.append(result.count)
+                blockBeginnings.append(result.count)
                 switch node.listType() ?? .bullet {
                 case .bullet:
                     listPrefixes += "*"
@@ -71,7 +76,7 @@ extension Node {
                     listPrefixes += "#"
                 }
             case (.exit, .list):
-                guard let marker = blockBeginings.popLast() else {
+                guard let marker = blockBeginnings.popLast() else {
                     break
                 }
 
@@ -83,9 +88,9 @@ extension Node {
                 }
 
             case (.enter, .item):
-                blockBeginings.append(result.count)
+                blockBeginnings.append(result.count)
             case (.exit, .item):
-                guard let marker = blockBeginings.popLast() else {
+                guard let marker = blockBeginnings.popLast() else {
                     break
                 }
 
@@ -94,7 +99,7 @@ extension Node {
                 result = result[0..<marker] + [content]
 
             case (.exit, .blockQuote):
-                guard let marker = blockBeginings.popLast() else {
+                guard let marker = blockBeginnings.popLast() else {
                     break
                 }
 

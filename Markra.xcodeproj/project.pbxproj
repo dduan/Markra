@@ -149,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				37CD0224252D7528009FC552 /* Assets.xcassets */,
+				37CD0233252D7528009FC552 /* Info.plist */,
+				37CD0234252D7528009FC552 /* macOS.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,8 +186,6 @@
 				378F2DF32532AD83008C0082 /* MarkdownDocument.swift */,
 				378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */,
 				378F2E032532C892008C0082 /* IUOBox.swift */,
-				37CD0233252D7528009FC552 /* Info.plist */,
-				37CD0234252D7528009FC552 /* macOS.entitlements */,
 				3708022D2535719400087943 /* View+FirstResponder.swift */,
 				378F2E922533B838008C0082 /* AppToolbar.swift */,
 			);
@@ -535,14 +535,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Markra/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Markra/Resources/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GBRF5PDZ46;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Markra/Info.plist;
+				INFOPLIST_FILE = Markra/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -559,14 +559,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Markra/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Markra/Resources/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = GBRF5PDZ46;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Markra/Info.plist;
+				INFOPLIST_FILE = Markra/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
