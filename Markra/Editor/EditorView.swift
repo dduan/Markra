@@ -5,11 +5,7 @@ import Introspect
 let kMarkdownPlaceholderText = "Enter Markdown here…"
 let kJiraPlaceholderText = "Plaintext format JIRA appears here…"
 
-#if os(macOS)
 typealias NativeTextView = NSTextView
-#else
-typealias NativeTextView = UITextView
-#endif
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
@@ -41,12 +37,8 @@ struct EditorView: View {
     }
     var body: some View {
         VStack {
-            if AppLayout.basedOnUITraits == .wide {
-                Spacer().frame(height: 1) // HACK: without this, the app doesn't layout correctly on iOS.
-                HStack { mainBody }
-            } else {
-                VStack { mainBody }
-            }
+            Spacer().frame(height: 1) // HACK: without this, the app doesn't layout correctly on iOS.
+            HStack { mainBody }
         }
     }
 }

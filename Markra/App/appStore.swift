@@ -2,11 +2,7 @@ import ComposableArchitecture
 import SwiftUI
 import Markdown2Jira
 import Combine
-#if os(macOS)
 import AppKit
-#else
-import UIKit
-#endif
 
 let appReducer = Reducer
     .combine(
@@ -21,21 +17,13 @@ let appReducer = Reducer
             case .copyJira:
                 let jiraText = state.editor.jira
                 return .fireAndForget {
-                    #if os(macOS)
                     NSPasteboard.general.declareTypes([.string], owner: nil)
                     NSPasteboard.general.setString(jiraText , forType: .string)
-                    #else
-                    UIPasteboard.general.string = jiraText
-                    #endif
                 }
             case .pasteMarkdown:
                 let existingMarkdown = state.editor.markdown
                 return Future { complete in
-                    #if os(macOS)
                     let string = NSPasteboard.general.string(forType: .string)
-                    #else
-                    let string = UIPasteboard.general.string
-                    #endif
                     if let string = string {
                         let markdown = existingMarkdown.isEmpty ? string : existingMarkdown + "\n" + string
                         complete(.success(.updateMarkdown(markdown)))

@@ -12,7 +12,6 @@
 		378F2DF52532AD83008C0082 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DF32532AD83008C0082 /* MarkdownDocument.swift */; };
 		378F2DFD2532BD6E008C0082 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */; };
 		378F2E052532C892008C0082 /* IUOBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E032532C892008C0082 /* IUOBox.swift */; };
-		378F2E862533B257008C0082 /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E842533B257008C0082 /* AppLayout.swift */; };
 		378F2E932533B838008C0082 /* AppToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378F2E922533B838008C0082 /* AppToolbar.swift */; };
 		378F2EA62533CD57008C0082 /* Markdown2Jira.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; };
 		378F2EA72533CD57008C0082 /* Markdown2Jira.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37CD02DB2530FC88009FC552 /* Markdown2Jira.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -70,7 +69,6 @@
 		378F2DF32532AD83008C0082 /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		378F2E032532C892008C0082 /* IUOBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IUOBox.swift; sourceTree = "<group>"; };
-		378F2E842533B257008C0082 /* AppLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		378F2E922533B838008C0082 /* AppToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppToolbar.swift; sourceTree = "<group>"; };
 		37CD0222252D7527009FC552 /* MarkraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkraApp.swift; sourceTree = "<group>"; };
 		37CD0223252D7527009FC552 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				378F2DF32532AD83008C0082 /* MarkdownDocument.swift */,
 				378F2DFB2532BD6E008C0082 /* Binding+Extensions.swift */,
 				378F2E032532C892008C0082 /* IUOBox.swift */,
-				378F2E842533B257008C0082 /* AppLayout.swift */,
 				37CD0233252D7528009FC552 /* Info.plist */,
 				37CD0234252D7528009FC552 /* macOS.entitlements */,
 				3708022D2535719400087943 /* View+FirstResponder.swift */,
@@ -371,7 +368,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				37CD0291252D7C00009FC552 /* EditorAction.swift in Sources */,
-				378F2E862533B257008C0082 /* AppLayout.swift in Sources */,
 				37CD028A252D7BDC009FC552 /* EditorState.swift in Sources */,
 				37CD0265252D75D8009FC552 /* EditorView.swift in Sources */,
 				3708022E2535719400087943 /* View+FirstResponder.swift in Sources */,
