@@ -9,12 +9,19 @@ typealias NativeTextView = NSTextView
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
+    @available(macOS 12, *)
+    @FocusState var focus: Bool
     var body: some View {
         WithViewStore(store) { viewStore in
-            HStack {
+            HStack(spacing: 0) {
                 ZStack {
-                    TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
-                        .makeFirstResponder(NativeTextView.self)
+                    if #available(macOS 12.0, *) {
+                        TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
+                            .focused($focus)
+                    } else {
+                        TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
+                            .makeFirstResponder(NativeTextView.self)
+                    }
                     if viewStore.markdown.isEmpty {
                         Text(kMarkdownPlaceholderText)
                             .foregroundColor(.secondary)
