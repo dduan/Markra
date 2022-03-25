@@ -9,9 +9,9 @@ typealias NativeTextView = NSTextView
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
-    var mainBody: some View {
+    var body: some View {
         WithViewStore(store) { viewStore in
-            Group {
+            HStack {
                 ZStack {
                     TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
                         .makeFirstResponder(NativeTextView.self)
@@ -33,12 +33,6 @@ struct EditorView: View {
                 }
             }
             .font(.system(.body, design: .monospaced))
-        }
-    }
-    var body: some View {
-        VStack {
-            Spacer().frame(height: 1) // HACK: without this, the app doesn't layout correctly on iOS.
-            HStack { mainBody }
         }
     }
 }
