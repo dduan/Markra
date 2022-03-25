@@ -20,14 +20,11 @@ extension Node {
             return result
         }
 
-//        print("----")
-
         for (event, node) in Tree(root: self) {
             guard let type = node.type() else {
                 continue
             }
 
-//            print(event, type)
             switch (event, type) {
             case (.exit, .paragraph):
                 result.append(consolidate())

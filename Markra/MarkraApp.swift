@@ -59,11 +59,7 @@ struct AppCommands: Commands {
 
         CommandGroup(replacing: .help) {
             Button("Markra Help") {
-                #if os(macOS)
                 NSWorkspace.shared.open(URL(string: "https://duan.ca/Markra")!)
-                #else
-                UIApplication.shared.open(URL(string: "https://duan.ca/Markra")!)
-                #endif
             }
             .keyboardShortcut("?", modifiers: .command)
         }
