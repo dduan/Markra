@@ -1,0 +1,63 @@
+name: Markra
+options:
+  bundleIdPrefix: ca.duan
+configFiles:
+  Debug: xcconfigs/Debug.xcconfig
+  Release: xcconfigs/Release.xcconfig
+packages:
+  Scmark:
+    url: https://github.com/dduan/scmark
+    branch: main
+  ComposableArchitecture:
+    url: https://github.com/pointfreeco/swift-composable-architecture
+    exactVersion: 0.34.0
+  Introspect:
+    url: https://github.com/siteline/SwiftUI-Introspect.git
+    exactVersion: 0.1.4
+targets:
+  Markra:
+    type: application
+    platform: macOS
+    settings:
+      INFOPLIST_FILE: Markra/Resources/Info.plist
+    configFiles:
+      Debug: Markra/Resources/Shared.xcconfig
+      Release: Markra/Resources/Shared.xcconfig
+    sources: Markra
+    dependencies:
+      - target: Markdown2Jira
+        embed: true
+        codesign: true
+      - package: ComposableArchitecture
+        product: ComposableArchitecture
+      - package: Introspect
+        product: Introspect
+    postBuildScripts:
+      - script: Scripts/update-version.sh
+        name: Update version
+    scheme:
+      testTargets:
+        - Markdown2JiraTests
+  Markdown2Jira:
+    type: framework
+    platform: macOS
+    settings:
+      INFOPLIST_FILE: Markdown2Jira/Resources/Info.plist
+    configFiles:
+      Debug: Markdown2Jira/Resources/Shared.xcconfig
+      Release: Markdown2Jira/Resources/Shared.xcconfig
+    sources: [Markdown2Jira]
+    dependencies:
+      - package: Scmark
+        product: Scmark
+  Markdown2JiraTests:
+    type: bundle.unit-test
+    platform: macOS
+    settings:
+      INFOPLIST_FILE: Markdown2JiraTests/Resources/Info.plist
+    configFiles:
+      Debug: Markdown2JiraTests/Resources/Shared.xcconfig
+      Release: Markdown2JiraTests/Resources/Shared.xcconfig
+    sources: Markdown2JiraTests
+    dependencies:
+      - target: Markdown2Jira
