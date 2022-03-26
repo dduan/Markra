@@ -16,6 +16,13 @@ class Markdown2JiraTests: XCTestCase {
         )
     }
 
+    func testStrikeThrough() {
+        XCTAssertEqual(
+            markdown2Jira("~Hello~"),
+            "-Hello-\n"
+        )
+    }
+
     func testStrong() {
         XCTAssertEqual(
             markdown2Jira("**Hello**"),

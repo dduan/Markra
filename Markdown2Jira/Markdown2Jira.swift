@@ -31,6 +31,34 @@ struct JIRARenderer: MarkupWalker {
         }
     }
 
+    mutating func visitThematicBreak(_ thematicBreak: ThematicBreak) {
+        self.paragraphs.append("----\n")
+    }
+
+    mutating func visitCustomBlock(_ customBlock: CustomBlock) {}
+    mutating func visitHTMLBlock(_ html: HTMLBlock) {}
+    mutating func visitBlockDirective(_ blockDirective: BlockDirective) {}
+    mutating func visitCustomInline(_ customInline: CustomInline) {}
+    mutating func visitInlineHTML(_ inlineHTML: InlineHTML) {}
+    mutating func visitSymbolLink(_ symbolLink: SymbolLink) {}
+
+
+    mutating func visitTable(_ table: Table) {
+        return defaultVisit(table)
+    }
+    mutating func visitTableHead(_ tableHead: Table.Head) {
+        return defaultVisit(tableHead)
+    }
+    mutating func visitTableBody(_ tableBody: Table.Body) {
+        return defaultVisit(tableBody)
+    }
+    mutating func visitTableRow(_ tableRow: Table.Row) {
+        return defaultVisit(tableRow)
+    }
+    mutating func visitTableCell(_ tableCell: Table.Cell) {
+        return defaultVisit(tableCell)
+    }
+
     mutating func visitOrderedList(_ orderedList: OrderedList) -> () {
         self.visitList(prefix: "#", list: orderedList)
     }
@@ -109,6 +137,14 @@ struct JIRARenderer: MarkupWalker {
         self.inlineLeaves = []
         descendInto(strong)
         let newLeaf = "*\(self.joinLeaves())*"
+        self.inlineLeaves = existingLeaves + [newLeaf]
+    }
+
+    mutating func visitStrikethrough(_ strikethrough: Strikethrough) {
+        let existingLeaves = self.inlineLeaves
+        self.inlineLeaves = []
+        descendInto(strikethrough)
+        let newLeaf = "-\(self.joinLeaves())-"
         self.inlineLeaves = existingLeaves + [newLeaf]
     }
 
