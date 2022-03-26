@@ -5,15 +5,15 @@ configFiles:
   Debug: xcconfigs/Debug.xcconfig
   Release: xcconfigs/Release.xcconfig
 packages:
-  Scmark:
-    url: https://github.com/dduan/scmark
-    branch: main
   ComposableArchitecture:
     url: https://github.com/pointfreeco/swift-composable-architecture
     exactVersion: 0.34.0
   Introspect:
     url: https://github.com/siteline/SwiftUI-Introspect.git
     exactVersion: 0.1.4
+  SwiftMarkdown:
+    url: https://github.com/apple/swift-markdown
+    revision: swift-5.6-RELEASE
 targets:
   Markra:
     type: application
@@ -48,8 +48,8 @@ targets:
       Release: Markdown2Jira/Resources/Shared.xcconfig
     sources: [Markdown2Jira]
     dependencies:
-      - package: Scmark
-        product: Scmark
+      - package: SwiftMarkdown
+        product: Markdown
   Markdown2JiraTests:
     type: bundle.unit-test
     platform: macOS

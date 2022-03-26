@@ -1,5 +1,5 @@
+import Markdown2Jira
 import XCTest
-@testable import Markdown2Jira
 
 class Markdown2JiraTests: XCTestCase {
     func testPlaintext() {
@@ -8,7 +8,6 @@ class Markdown2JiraTests: XCTestCase {
             "Hello"
         )
     }
-
 
     func testEmphasize() {
         XCTAssertEqual(
@@ -31,18 +30,71 @@ class Markdown2JiraTests: XCTestCase {
         )
     }
 
+    func testImageWithAltTextAndTitle() {
+        XCTAssertEqual(
+            markdown2Jira(#"![foo *bar*](/url "title")"#),
+            #"!/url|,alt="foo bar",title="title"!"#
+        )
+    }
+
+    func testImageWithAltText() {
+        XCTAssertEqual(
+            markdown2Jira(#"![foo *bar*](/url)"#),
+            #"!/url|,alt="foo bar"!"#
+        )
+    }
+
+    func testImageWithTitle() {
+        XCTAssertEqual(
+            markdown2Jira(#"![](/url "title")"#),
+            #"!/url|,title="title"!"#
+        )
+    }
+
+    func testImage() {
+        XCTAssertEqual(
+            markdown2Jira(#"![](/url)"#),
+            #"!/url!"#
+        )
+    }
+
+    func testLink() {
+        XCTAssertEqual(
+            markdown2Jira("[Hello, __world__](https://google.com)"),
+            "[Hello, *world*|https://google.com]"
+        )
+    }
+
+    func testLinkWithoutText() {
+        XCTAssertEqual(
+            markdown2Jira("[](https://google.com)"),
+            "[https://google.com]"
+        )
+    }
+
+    func testAutoLink() {
+        XCTAssertEqual(
+            markdown2Jira("<https://google.com>"),
+            "[https://google.com]"
+        )
+    }
+
     func testCodeBlock() {
         XCTAssertEqual(
             markdown2Jira(
                 """
                 ```swift
-                func f() {}
+                func f() {
+                    print("hello")
+                }
                 ```
                 """
             ),
             """
             {code:swift}
-            func f() {}
+            func f() {
+                print("hello")
+            }
             {code}
             """
         )
@@ -52,14 +104,18 @@ class Markdown2JiraTests: XCTestCase {
         XCTAssertEqual(
             markdown2Jira(
                 """
-                > hello
-                > world
+                > hello _world_
+                > you are welcome
+                >
+                > __paragraph__
                 """
             ),
             """
             {quote}
-            hello
-            world
+            hello _world_
+            you are welcome
+
+            *paragraph*
             {quote}
             """
         )
@@ -77,68 +133,65 @@ class Markdown2JiraTests: XCTestCase {
             ),
             """
             h1. one
-
             h2. two
-
             h3. three
-
             h4. four
             """
         )
     }
 
-    func testOrderedList() {
-        XCTAssertEqual(
-            markdown2Jira(
-                """
-                1. one
-                2. two
-                3. three
-                """
-            ),
-            """
-            # one
-            # two
-            # three
-            """
-        )
-    }
+     func testOrderedList() {
+         XCTAssertEqual(
+             markdown2Jira(
+                 """
+                 1. one
+                 2. two
+                 3. three
+                 """
+             ),
+             """
+             # one
+             # two
+             # three
+             """
+         )
+     }
 
-    func testUnorderedList() {
-        XCTAssertEqual(
-            markdown2Jira(
-                """
-                * one
-                * two
-                * three
-                """
-            ),
-            """
-            * one
-            * two
-            * three
-            """
-        )
-    }
+     func testUnorderedList() {
+         XCTAssertEqual(
+             markdown2Jira(
+                 """
+                 * one
+                 * two
+                 * three
+                 """
+             ),
+             """
+             * one
+             * two
+             * three
+             """
+         )
+     }
 
-    func testNestedLists() {
-        XCTAssertEqual(
-            markdown2Jira(
-                """
-                * one
-                * two
-                  1. three
-                  2. four
-                * five
-                """
-            ),
-            """
-            * one
-            * two
-            *# three
-            *# four
-            * five
-            """
-        )
-    }
+     func testNestedLists() {
+         XCTAssertEqual(
+             markdown2Jira(
+                 """
+                 * one
+                 * two
+                   1. three
+                   2. four
+                 * five
+                 """
+             ),
+             """
+             * one
+             * two
+             *# three
+             *# four
+             * five
+             """
+         )
+     }
 }

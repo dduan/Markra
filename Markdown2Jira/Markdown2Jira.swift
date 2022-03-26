@@ -1,140 +1,144 @@
-import Scmark
-import Foundation
+import Markdown
 
-let kHighlightingLanguages: Set<String> = [
-    "java", "actionscript", "ada", "applescript", "bash", "c", "c#", "c++", "css", "erlang", "go", "groovy",
-    "haskell", "html", "javascript", "json", "lua", "nyan", "objc", "perl", "php", "python", "r", "ruby",
-    "scala", "sql", "swift", "visualbasic", "xml", "yaml"
-]
+struct JIRARenderer: MarkupWalker {
+    var paragraphs = [String]()
+    var inlineLeaves = [String]()
+    var listPrefixes = ""
 
-public func markdown2Jira(_ markdown: String) -> String {
-    Parser(options: .smart).parse(document: markdown).renderJira()
+    private mutating func joinLeaves() -> String {
+        let result = self.inlineLeaves.joined()
+        self.inlineLeaves = []
+        return result
+    }
+
+    func render() -> String {
+        assert(self.listPrefixes.isEmpty, "Renderer has unfinished list")
+        assert(self.inlineLeaves.isEmpty, "Renderer has unfinished inline leaves")
+
+        return self.paragraphs.joined(separator: "\n")
+    }
+
+    private mutating func visitList<L: ListItemContainer>(prefix: String, list: L) {
+        let existingParagrahs = self.paragraphs
+        self.paragraphs = []
+        self.listPrefixes += prefix
+        descendInto(list)
+        self.listPrefixes.removeLast()
+        if listPrefixes.isEmpty {
+            self.paragraphs = existingParagrahs + [self.paragraphs.joined(separator: "\n")]
+        } else {
+            self.paragraphs = existingParagrahs + self.paragraphs
+        }
+    }
+
+    mutating func visitOrderedList(_ orderedList: OrderedList) -> () {
+        self.visitList(prefix: "#", list: orderedList)
+    }
+
+    mutating func visitUnorderedList(_ unorderedList: UnorderedList) -> () {
+        self.visitList(prefix: "*", list: unorderedList)
+    }
+
+    mutating func visitBlockQuote(_ blockQuote: BlockQuote) {
+        let existingParagraphs = self.paragraphs
+        self.paragraphs = []
+        descendInto(blockQuote)
+        let quote = """
+        {quote}
+        \(paragraphs.joined(separator: "\n\n"))
+        {quote}
+        """
+        self.paragraphs = existingParagraphs + [quote]
+    }
+
+    mutating func visitParagraph(_ paragraph: Paragraph) {
+        descendInto(paragraph)
+        assert(!self.inlineLeaves.isEmpty, "Empty paragraph is unexpected")
+        let prefix = self.listPrefixes.isEmpty ? "" : "\(self.listPrefixes) "
+        self.paragraphs.append(prefix + self.joinLeaves())
+    }
+
+    mutating func visitHeading(_ heading: Heading) {
+        assert(self.inlineLeaves.isEmpty, "Inline leaves should be empty prior to heading")
+        descendInto(heading)
+        let content = self.joinLeaves()
+        self.paragraphs.append("h\(min(6, heading.level)). \(content)")
+    }
+
+    mutating func visitLink(_ link: Link) {
+        descendInto(link)
+        let content = self.joinLeaves()
+        let destination = link.destination ?? ""
+        let shortFormat = content.isEmpty || destination == content
+        let rendered = shortFormat ? "[\(destination)]" : "[\(content)|\(link.destination ?? "")]"
+        self.inlineLeaves.append(rendered)
+    }
+
+    mutating func visitImage(_ image: Image) {
+        descendInto(image)
+        self.inlineLeaves = []
+        var parts = [image.source ?? ""]
+
+        var secondPart = ""
+        if !image.plainText.isEmpty {
+            secondPart += #",alt="\#(image.plainText)""#
+        }
+
+        if let title = image.title, !title.isEmpty {
+            secondPart += #",title="\#(title)""#
+        }
+
+        if !secondPart.isEmpty {
+            parts.append(secondPart)
+        }
+
+        self.inlineLeaves.append("!\(parts.joined(separator: "|"))!")
+    }
+
+    mutating func visitEmphasis(_ emphasis: Emphasis) {
+        let existingLeaves = self.inlineLeaves
+        self.inlineLeaves = []
+        descendInto(emphasis)
+        let newLeaf = "_\(self.joinLeaves())_"
+        self.inlineLeaves = existingLeaves + [newLeaf]
+    }
+
+    mutating func visitStrong(_ strong: Strong) {
+        let existingLeaves = self.inlineLeaves
+        self.inlineLeaves = []
+        descendInto(strong)
+        let newLeaf = "*\(self.joinLeaves())*"
+        self.inlineLeaves = existingLeaves + [newLeaf]
+    }
+
+    mutating func visitCodeBlock(_ codeBlock: CodeBlock) {
+        self.paragraphs.append("""
+        {code\(codeBlock.language.map { ":\($0)" } ?? "")}
+        \(codeBlock.code){code}
+        """)
+    }
+
+    // MARK: - Inline Leaves
+    mutating func visitInlineCode(_ inlineCode: InlineCode) {
+        self.inlineLeaves.append("{{\(inlineCode.code)}}")
+    }
+
+    mutating func visitText(_ text: Text) {
+        self.inlineLeaves.append(text.plainText)
+    }
+
+    mutating func visitSoftBreak(_ softBreak: SoftBreak) {
+        self.inlineLeaves.append("\n")
+    }
+
+    mutating func visitLineBreak(_ lineBreak: LineBreak) {
+        self.inlineLeaves.append("\\\\")
+    }
 }
 
-extension Node {
-    func renderJira() -> String {
-        var stack: [NodeType] = []
-        var texts: [String] = []
-        var result: [String] = []
-        var blockBeginnings: [Int] = []
-        var listPrefixes: String = ""
-
-        func consolidate() -> String {
-            let result = texts.joined(separator: "")
-            texts = []
-            return result
-        }
-
-        for (event, node) in Tree(root: self) {
-            guard let type = node.type() else {
-                continue
-            }
-
-            switch (event, type) {
-            case (.exit, .paragraph):
-                result.append(consolidate())
-            case (_, .text):
-                guard stack.last != .image else {
-                    break
-                }
-
-                texts.append(node.literal() ?? "")
-
-            case (_, .softBreak):
-                texts.append("\n")
-
-            case
-                (.enter, .strong),
-                (.enter, .emphasize),
-                (.enter, .link),
-                (.enter, .image):
-                stack.append(type)
-
-            case (.enter, .heading):
-                stack.append(type)
-
-            case (.enter, .thematicBreak):
-                result.append("----")
-
-            case (.enter, .codeBlock):
-                let fense = node.fenceInfo()
-                let showFense = kHighlightingLanguages.contains(fense.lowercased())
-                result.append("{code\(!showFense ? "" : ":\(fense)")}\n\(node.literal() ?? ""){code}")
-
-            case  (_, .code):
-                let literal = "{{\(node.literal() ?? "")}}"
-                texts.append(literal)
-
-            case (.enter, .blockQuote):
-                blockBeginnings.append(result.count)
-            case (.enter, .list):
-                blockBeginnings.append(result.count)
-                switch node.listType() ?? .bullet {
-                case .bullet:
-                    listPrefixes += "*"
-                case .ordered:
-                    listPrefixes += "#"
-                }
-            case (.exit, .list):
-                guard let marker = blockBeginnings.popLast() else {
-                    break
-                }
-
-                listPrefixes.removeLast()
-
-                if listPrefixes.isEmpty {
-                    let joinedLists = result[marker...].joined(separator: "\n")
-                    result = result[0..<marker] + [joinedLists]
-                }
-
-            case (.enter, .item):
-                blockBeginnings.append(result.count)
-            case (.exit, .item):
-                guard let marker = blockBeginnings.popLast() else {
-                    break
-                }
-
-
-                let content = listPrefixes + " " + result[marker...].joined(separator: "\n")
-                result = result[0..<marker] + [content]
-
-            case (.exit, .blockQuote):
-                guard let marker = blockBeginnings.popLast() else {
-                    break
-                }
-
-                let content = result[marker...].joined(separator: "\n")
-                result = result[0..<marker] + ["{quote}\n\(content)\n{quote}"]
-
-            case (.exit, .strong):
-                texts[texts.count - 1] = texts.last.map { "*" + $0 + "*" } ?? ""
-                stack.removeLast()
-
-            case (.exit, .emphasize):
-                texts[texts.count - 1] = texts.last.map { "_" + $0 + "_" } ?? ""
-                stack.removeLast()
-
-            case (.exit, .heading):
-                if let level = node.headingLevel() {
-                    result.append("h\(level). \(consolidate())")
-                }
-            case (.exit, .link):
-                if let link = node.url() {
-                    texts[texts.count - 1] = texts.last.map { "[\($0)|\(link)]" } ?? ""
-                }
-
-            case (.exit, .image):
-                if let link = node.url() {
-                    texts.append( " !\(link)! ")
-                }
-
-                stack.removeLast()
-
-            case _:
-                break
-            }
-        }
-
-        return result.joined(separator: "\n\n")
-    }
+public func markdown2Jira(_ markdown: String) -> String {
+    let document = Document(parsing: markdown)
+    var renderer = JIRARenderer()
+    renderer.visit(document)
+    return renderer.render()
 }
