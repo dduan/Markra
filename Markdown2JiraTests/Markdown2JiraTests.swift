@@ -5,77 +5,77 @@ class Markdown2JiraTests: XCTestCase {
     func testPlaintext() {
         XCTAssertEqual(
             markdown2Jira("Hello"),
-            "Hello"
+            "Hello\n"
         )
     }
 
     func testEmphasize() {
         XCTAssertEqual(
             markdown2Jira("*Hello*"),
-            "_Hello_"
+            "_Hello_\n"
         )
     }
 
     func testStrong() {
         XCTAssertEqual(
             markdown2Jira("**Hello**"),
-            "*Hello*"
+            "*Hello*\n"
         )
     }
 
     func testCode() {
         XCTAssertEqual(
             markdown2Jira("`Hello`"),
-            "{{Hello}}"
+            "{{Hello}}\n"
         )
     }
 
     func testImageWithAltTextAndTitle() {
         XCTAssertEqual(
             markdown2Jira(#"![foo *bar*](/url "title")"#),
-            #"!/url|,alt="foo bar",title="title"!"#
+            #"!/url|,alt="foo bar",title="title"!"# + "\n"
         )
     }
 
     func testImageWithAltText() {
         XCTAssertEqual(
             markdown2Jira(#"![foo *bar*](/url)"#),
-            #"!/url|,alt="foo bar"!"#
+            #"!/url|,alt="foo bar"!"# + "\n"
         )
     }
 
     func testImageWithTitle() {
         XCTAssertEqual(
             markdown2Jira(#"![](/url "title")"#),
-            #"!/url|,title="title"!"#
+            #"!/url|,title="title"!"# + "\n"
         )
     }
 
     func testImage() {
         XCTAssertEqual(
             markdown2Jira(#"![](/url)"#),
-            #"!/url!"#
+            #"!/url!"# + "\n"
         )
     }
 
     func testLink() {
         XCTAssertEqual(
             markdown2Jira("[Hello, __world__](https://google.com)"),
-            "[Hello, *world*|https://google.com]"
+            "[Hello, *world*|https://google.com]\n"
         )
     }
 
     func testLinkWithoutText() {
         XCTAssertEqual(
             markdown2Jira("[](https://google.com)"),
-            "[https://google.com]"
+            "[https://google.com]\n"
         )
     }
 
     func testAutoLink() {
         XCTAssertEqual(
             markdown2Jira("<https://google.com>"),
-            "[https://google.com]"
+            "[https://google.com]\n"
         )
     }
 

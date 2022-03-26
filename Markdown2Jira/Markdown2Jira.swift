@@ -55,7 +55,8 @@ struct JIRARenderer: MarkupWalker {
         descendInto(paragraph)
         assert(!self.inlineLeaves.isEmpty, "Empty paragraph is unexpected")
         let prefix = self.listPrefixes.isEmpty ? "" : "\(self.listPrefixes) "
-        self.paragraphs.append(prefix + self.joinLeaves())
+        let additionalLine = (paragraph.parent is Document) ? "\n" : ""
+        self.paragraphs.append("\(prefix)\(self.joinLeaves())\(additionalLine)")
     }
 
     mutating func visitHeading(_ heading: Heading) {
