@@ -19,15 +19,15 @@ struct JIRARenderer: MarkupWalker {
     }
 
     private mutating func visitList<L: ListItemContainer>(prefix: String, list: L) {
-        let existingParagrahs = self.paragraphs
+        let existingParagraphs = self.paragraphs
         self.paragraphs = []
         self.listPrefixes += prefix
         descendInto(list)
         self.listPrefixes.removeLast()
         if listPrefixes.isEmpty {
-            self.paragraphs = existingParagrahs + [self.paragraphs.joined(separator: "\n")]
+            self.paragraphs = existingParagraphs + [self.paragraphs.joined(separator: "\n")]
         } else {
-            self.paragraphs = existingParagrahs + self.paragraphs
+            self.paragraphs = existingParagraphs + self.paragraphs
         }
     }
 
@@ -44,19 +44,35 @@ struct JIRARenderer: MarkupWalker {
 
 
     mutating func visitTable(_ table: Table) {
-        return defaultVisit(table)
+        assert(self.inlineLeaves.isEmpty, "Leaves prior to table")
+        let existingParagraphs = self.paragraphs
+        self.paragraphs = []
+        descendInto(table)
+        let table = self.paragraphs.joined(separator: "\n") + "\n"
+        self.paragraphs = existingParagraphs + [table]
     }
+
     mutating func visitTableHead(_ tableHead: Table.Head) {
-        return defaultVisit(tableHead)
+        assert(self.inlineLeaves.isEmpty, "Leaves prior to table header")
+        assert(self.paragraphs.isEmpty, "Expected paragraphs to be empty prior to table header")
+        descendInto(tableHead)
+        let header = "||\(self.paragraphs.joined(separator: "||"))||"
+        self.paragraphs = [header]
     }
-    mutating func visitTableBody(_ tableBody: Table.Body) {
-        return defaultVisit(tableBody)
-    }
+
     mutating func visitTableRow(_ tableRow: Table.Row) {
-        return defaultVisit(tableRow)
+        assert(self.inlineLeaves.isEmpty, "Leaves prior to table row")
+        let existingParagraphs = self.paragraphs
+        self.paragraphs = []
+        descendInto(tableRow)
+        let row = "|\(self.paragraphs.joined(separator: "|"))|"
+        self.paragraphs = existingParagraphs + [row]
     }
+
     mutating func visitTableCell(_ tableCell: Table.Cell) {
-        return defaultVisit(tableCell)
+        assert(self.inlineLeaves.isEmpty, "Leaves prior to table cell")
+        descendInto(tableCell)
+        self.paragraphs.append(self.joinLeaves())
     }
 
     mutating func visitOrderedList(_ orderedList: OrderedList) -> () {

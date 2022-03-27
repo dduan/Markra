@@ -201,4 +201,20 @@ class Markdown2JiraTests: XCTestCase {
              """
          )
      }
+
+     func testTable() {
+         XCTAssertEqual(
+             markdown2Jira(
+                 """
+                 | a | b |
+                 | - | - |
+                 | hello __world__ | world |
+                 """
+             ),
+             """
+             ||a||b||
+             |hello *world*|world|
+             """
+         )
+     }
 }
