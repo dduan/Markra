@@ -3,7 +3,7 @@ import UniformTypeIdentifiers
 
 extension UTType {
     static var markdown: UTType {
-        UTType(importedAs: "ca.duan.markra.plain-text", conformingTo: .plainText)
+        UTType(importedAs: "net.daringfireball.markdown", conformingTo: .plainText)
     }
 }
 
