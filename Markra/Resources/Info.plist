@@ -34,7 +34,7 @@
 			<key>UTTypeDescription</key>
 			<string>Markdown</string>
 			<key>UTTypeIdentifier</key>
-			<string>ca.duan.markra.plain-text</string>
+			<string>net.daringfireball.markdown</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
