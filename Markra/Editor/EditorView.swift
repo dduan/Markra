@@ -14,21 +14,12 @@ struct EditorView: View {
         WithViewStore(store) { viewStore in
             HStack(spacing: 0) {
                 ZStack {
-                    if #available(macOS 12.0, *) {
-                        TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
-                            .focused($focus)
-                            .introspectTextView { textView in
-                                textView.isAutomaticQuoteSubstitutionEnabled = false
-                                textView.isAutomaticDashSubstitutionEnabled = false
-                            }
-                    } else {
-                        TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
-                            .introspectTextView { textView in
-                                textView.window?.makeFirstResponder(textView)
-                                textView.isAutomaticQuoteSubstitutionEnabled = false
-                                textView.isAutomaticDashSubstitutionEnabled = false
-                            }
-                    }
+                    TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
+                        .introspectTextView { textView in
+                            textView.window?.makeFirstResponder(textView)
+                            textView.isAutomaticQuoteSubstitutionEnabled = false
+                            textView.isAutomaticDashSubstitutionEnabled = false
+                        }
                     if viewStore.markdown.isEmpty {
                         Text(kMarkdownPlaceholderText)
                             .foregroundColor(.secondary)
