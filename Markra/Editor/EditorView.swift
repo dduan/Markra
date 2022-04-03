@@ -1,11 +1,10 @@
+import AppKit
 import ComposableArchitecture
-import SwiftUI
 import Introspect
+import SwiftUI
 
 let kMarkdownPlaceholderText = "Enter Markdown here…"
 let kJiraPlaceholderText = "Plaintext format JIRA appears here…"
-
-typealias NativeTextView = NSTextView
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
@@ -18,9 +17,17 @@ struct EditorView: View {
                     if #available(macOS 12.0, *) {
                         TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
                             .focused($focus)
+                            .introspectTextView { textView in
+                                textView.isAutomaticQuoteSubstitutionEnabled = false
+                                textView.isAutomaticDashSubstitutionEnabled = false
+                            }
                     } else {
                         TextEditor(text: viewStore.binding(get: \.markdown, send: { .editMarkdown($0) }))
-                            .makeFirstResponder(NativeTextView.self)
+                            .introspectTextView { textView in
+                                textView.window?.makeFirstResponder(textView)
+                                textView.isAutomaticQuoteSubstitutionEnabled = false
+                                textView.isAutomaticDashSubstitutionEnabled = false
+                            }
                     }
                     if viewStore.markdown.isEmpty {
                         Text(kMarkdownPlaceholderText)
