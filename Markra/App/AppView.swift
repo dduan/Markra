@@ -7,7 +7,7 @@ struct AppView: View {
     var body: some View {
         WithViewStore(store) { viewStore in
             EditorView(store: store.scope(state: \.editor, action: { .editor($0) }))
-                .focusedValue(\.appStore, viewStore.send)
+                .focusedValue(\.documentID, viewStore.documentID)
                 .toolbar(content: { AppToolbar(viewStore: viewStore) })
                 .onDisappear(perform: cleanUp)
         }
@@ -16,8 +16,9 @@ struct AppView: View {
 }
 
 #if DEBUG
+let testUUID = UUID()
 let testAppStore = Store<AppState, AppAction>(
-    initialState: .init(editor: EditorState(markdown: "Hello", jira: "World", isTranslating: false)),
+    initialState: .init(documentID: testUUID, editor: EditorState(markdown: "Hello", jira: "World", isTranslating: false)),
     reducer: appReducer,
     environment: AppEnvironment.testing()
 )

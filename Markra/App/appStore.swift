@@ -49,6 +49,7 @@ func makeAppStore(document: Binding<MarkdownDocument>) ->  Store<AppState, AppAc
     let initialMarkdown = document.wrappedValue.text
     return Store<AppState, AppAction>(
         initialState: AppState(
+            documentID: document.wrappedValue.id,
             editor: EditorState(
                 markdown: initialMarkdown,
                 jira: markdown2Jira(initialMarkdown)

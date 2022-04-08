@@ -2,11 +2,11 @@ import ComposableArchitecture
 import SwiftUI
 
 struct FocusedAppStoreKey: FocusedValueKey {
-    typealias Value = (AppAction) -> Void
+    typealias Value = UUID
 }
 
 extension FocusedValues {
-    var appStore: FocusedAppStoreKey.Value? {
+    var documentID: FocusedAppStoreKey.Value? {
         get { self[FocusedAppStoreKey.self] }
         set { self[FocusedAppStoreKey.self] = newValue }
     }
@@ -18,7 +18,10 @@ struct MarkraScene: Scene {
     }
 
     var storeCache = DocumentStoreMap()
-    @FocusedValue(\.appStore) var focusedAppStore: ((AppAction) -> Void)?
+    @FocusedValue(\.documentID) var focusedDocumentID: (FocusedAppStoreKey.Value)?
+    var activeViewStore: ViewStore<AppState, AppAction>? {
+        self.focusedDocumentID.flatMap { self.storeCache.map[$0].map(ViewStore.init) }
+    }
 
     var body: some Scene {
         DocumentGroup(newDocument: MarkdownDocument()) { file -> AppView in
@@ -30,7 +33,23 @@ struct MarkraScene: Scene {
             }
         }
         .commands {
-            AppCommands(focusedStore: _focusedAppStore)
+            CommandGroup(before: .pasteboard) {
+                Button("Copy Jira") {
+                    self.activeViewStore?.send(.copyJira)
+                }
+                .keyboardShortcut("c", modifiers: [.shift, .command])
+                Button("Delete All") {
+                    self.activeViewStore?.send(.deleteAll)
+                }
+                .keyboardShortcut("d", modifiers: [.shift, .command])
+            }
+
+            CommandGroup(replacing: .help) {
+                Button("Markra Help") {
+                    NSWorkspace.shared.open(URL(string: "https://duan.ca/Markra")!)
+                }
+                .keyboardShortcut("?", modifiers: .command)
+            }
         }
     }
 }
