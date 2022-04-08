@@ -8,8 +8,6 @@ let kJiraPlaceholderText = "Plaintext format JIRA appears here…"
 
 struct EditorView: View {
     let store: Store<EditorState, EditorAction>
-    @available(macOS 12, *)
-    @FocusState var focus: Bool
     var body: some View {
         WithViewStore(store) { viewStore in
             HStack(spacing: 0) {
